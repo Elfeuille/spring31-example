@@ -40,4 +40,9 @@ public class ExampleTest {
 		context.close();
 	}
 
+	@Test
+	public void testMyBatisIntegration() {
+
+	}
+
 }

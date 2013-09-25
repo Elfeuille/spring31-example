@@ -1,10 +1,12 @@
 package jp.fuzzy31u.spring31.example;
 
 import static org.junit.Assert.assertEquals;
+import jp.fuzzy31u.spring31.example.service.UserService;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -12,6 +14,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {TestConfig.class})
 public class ExampleTest {
+
+	@Autowired
+	UserService service;
+
+	// BasicConfiguration
+	@Test
+	public void testBeanDefinition() throws Exception {
+		assertEquals("kamiya", service.getUserName());
+	}
 
 	@Test
 	public void testSetSystemProperty() {

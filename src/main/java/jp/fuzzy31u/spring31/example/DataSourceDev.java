@@ -17,5 +17,4 @@ public class DataSourceDev {
 		dataSource.setUsername("dev_user");
 		return dataSource;
 	}
-
 }

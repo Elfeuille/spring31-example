@@ -9,9 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = "jp.fuzzy31u.spring31.example.service")
-// @MapperScan("jp.fuzzy31u.spring31.example.entity.dao")
-// @EnableTransactionManagement
-public class TestConfig {
+public class BasicTestConfig {
 	// BeanDefinition
 	@Bean
 	public UserService userService() {

@@ -12,18 +12,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {TestConfig.class})
-public class ExampleTest {
+@ContextConfiguration(classes = {BasicTestConfig.class})
+public class BasicTest {
 
 	@Autowired
 	UserService service;
 
-	// BasicConfiguration
+	// @Bean
 	@Test
 	public void testBeanDefinition() throws Exception {
 		assertEquals("kamiya", service.getUserName());
 	}
 
+	// @Profile
 	@Test
 	public void testSetSystemProperty() {
 		System.setProperty("spring.profiles.active", "dev");
@@ -49,11 +50,6 @@ public class ExampleTest {
 		assertEquals("dev_user", dataSource.getUsername());
 
 		context.close();
-	}
-
-	@Test
-	public void testMyBatisIntegration() {
-
 	}
 
 }

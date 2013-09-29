@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -24,16 +23,16 @@ public class MyBatisTestConfig {
 	// private DataSource dataSource;
 
 	// DataSources for Test
-	@Bean
-	public TransactionAwareDataSourceProxy testDataSource() {
-		return new TransactionAwareDataSourceProxy(basicDataSource());
-	}
+	// @Bean
+	// public TransactionAwareDataSourceProxy testDataSource() {
+	// return new TransactionAwareDataSourceProxy(basicDataSource());
+	// }
 
 	@Bean(destroyMethod = "close")
 	public DataSource basicDataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
 		basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		basicDataSource.setUrl("jdbc:mysql://localhost:3306/crowdsourcing_test");
+		basicDataSource.setUrl("jdbc:mysql://localhost:3306/example");
 		basicDataSource.setUsername("root");
 		basicDataSource.setPassword("");
 		return basicDataSource;
